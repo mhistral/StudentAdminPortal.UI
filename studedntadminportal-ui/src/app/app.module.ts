@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AppRoutingModule } from './app-routing.module'; // CLI imports AppRoutingModule
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -96,7 +96,8 @@ import { StudentsComponent } from './students/students.component';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    AppRoutingModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
