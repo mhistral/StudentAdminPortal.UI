@@ -47,16 +47,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { TopNavComponent } from './layout/top-nav/top-nav.component';
 import { StudentsComponent } from './students/students.component';
-// import { TopNavComponent } from './layout/top-nav/top-nav.component';
-// import { StudentsComponent } from './students/students.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
     StudentsComponent,
-    // TopNavComponent,
-    // StudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +95,8 @@ import { StudentsComponent } from './students/students.component';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
