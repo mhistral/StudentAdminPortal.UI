@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Student } from 'src/app/models/ui.models/student.model';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -9,9 +10,30 @@ import { StudentService } from '../student.service';
 })
 export class ViewStudentComponent implements OnInit {
   studentId: string | null | undefined;
+  student: Student = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    email: '',
+    mobile: 0,
+    genderId: '',
+    profileImageUrl: '',
+    gender: {
+      id: '',
+      description: '',
+    },
+    address: {
+      id: '',
+      physicalAddress: '',
+      postalAddress: ''
+    }
+
+  }
 
   constructor(private readonly studentService: StudentService,
     private readonly route: ActivatedRoute) { }
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(
@@ -24,6 +46,7 @@ export class ViewStudentComponent implements OnInit {
           .subscribe(
             (successResponse) => {
               console.log(successResponse);
+              this.student = successResponse;
             }
           );
         }
