@@ -1,5 +1,7 @@
 {
    "editor.lightbulb.enabled": true,
+   "prettier.semi": false,
+   "prettier.trailingComma": "es5",
    "workbench.colorCustomizations": {
       "activityBar.background": "#143320",
       "titleBar.activeBackground": "#1C482D",

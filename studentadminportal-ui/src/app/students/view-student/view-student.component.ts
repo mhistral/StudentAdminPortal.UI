@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/models/ui.models/student.model';
 import { StudentService } from '../student.service';
+import { subscribeOn } from 'rxjs';
 
 @Component({
   selector: 'app-view-student',
@@ -63,5 +64,19 @@ export class ViewStudentComponent implements OnInit {
         });
       }
     });
+  }
+
+  // this part is where the ajax calles the API
+  onUpdate(): void {
+    // Call Student Service to update Student
+    this.studentService.updateStudent(this.student.id, this.student).subscribe(
+      (successResponse) => {
+        console.log(successResponse);
+        // show a notification
+      },
+      (error) => {
+        // log or console
+      }
+    );
   }
 }
