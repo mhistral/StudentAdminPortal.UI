@@ -62,14 +62,14 @@ export class ViewStudentComponent implements OnInit {
           //-> exisiting student functionality
           this.isNewStudent = false;
           this.header = 'Edit Student';
-        }
 
-        this.studentService
-          .getStudent(this.studentId)
-          .subscribe((successResponse) => {
-            // console.log(successResponse);
-            this.student = successResponse;
-          });
+          this.studentService
+            .getStudent(this.studentId)
+            .subscribe((successResponse) => {
+              // console.log(successResponse);
+              this.student = successResponse;
+            });
+        }
 
         /**
          * the file that is being called by this is the gender.services.ts

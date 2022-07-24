@@ -55,9 +55,11 @@ export class StudentService {
     );
   }
 
-  // this will receive an object request model of type student
-  // this will return Observable of type Student
-  //source
+  /**
+   * this will receive an object request model of type student
+   * @param studentRequest
+   * @returns this will return Observable of type Student
+   */
 
   addStudent(studentRequest: Student): Observable<Student> {
     //destination
