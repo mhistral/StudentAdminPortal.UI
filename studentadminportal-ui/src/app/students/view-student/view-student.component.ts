@@ -34,6 +34,9 @@ export class ViewStudentComponent implements OnInit {
     },
   };
 
+  isNewStudent = false;
+  header = '';
+
   genderList: Gender[] = [];
 
   constructor(
@@ -49,6 +52,18 @@ export class ViewStudentComponent implements OnInit {
       this.studentId = params.get('id');
 
       if (this.studentId) {
+        // if the route contains the 'Add'
+
+        if (this.studentId.toLowerCase() === 'Add'.toLowerCase()) {
+          //-> new Student Functionality
+          this.isNewStudent = true;
+          this.header = 'Add New Student';
+        } else {
+          //-> exisiting student functionality
+          this.isNewStudent = false;
+          this.header = 'Edit Student';
+        }
+
         this.studentService
           .getStudent(this.studentId)
           .subscribe((successResponse) => {
@@ -101,6 +116,24 @@ export class ViewStudentComponent implements OnInit {
         setTimeout(() => {
           this.router.navigateByUrl('students');
         }, 2000);
+      },
+      (error) => {
+        // log or console
+      }
+    );
+  }
+
+  // this part is where the ajax calles the API
+  onAdd(): void {
+    // Call student service to update Student
+    this.studentService.updateStudent(this.student.id, this.student).subscribe(
+      (successResponse) => {
+        console.log(successResponse);
+        // show a notification
+        this.snackbar.open('Student Saved Succesfully', undefined, {
+          duration: 2000,
+          verticalPosition: 'top',
+        });
       },
       (error) => {
         // log or console
