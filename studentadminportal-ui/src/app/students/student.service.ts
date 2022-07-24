@@ -46,4 +46,11 @@ export class StudentService {
       UpdateStudentRequest
     );
   }
+
+  // the return type of this student will be observable with of type Student
+  deleteStudent(studentId: string): Observable<Student> {
+    return this.httpsClient.delete<Student>(
+      this.baseApiUrl + '/students/' + studentId
+    );
+  }
 }
