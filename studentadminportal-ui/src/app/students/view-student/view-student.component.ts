@@ -125,18 +125,13 @@ export class ViewStudentComponent implements OnInit {
 
   // this part is where the ajax calles the API
   onAdd(): void {
-    // Call student service to update Student
-    this.studentService.updateStudent(this.student.id, this.student).subscribe(
+    // Call student service to Add Student
+    this.studentService.addStudent(this.student).subscribe(
       (successResponse) => {
         console.log(successResponse);
-        // show a notification
-        this.snackbar.open('Student Saved Succesfully', undefined, {
-          duration: 2000,
-          verticalPosition: 'top',
-        });
       },
-      (error) => {
-        // log or console
+      (errorResponse) => {
+        //Log
       }
     );
   }
