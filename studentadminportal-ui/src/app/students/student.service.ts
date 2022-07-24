@@ -33,7 +33,7 @@ export class StudentService {
       firstName: studentRequest.firstName,
       lastName: studentRequest.lastName,
       dateOfBirth: studentRequest.dateOfBirth,
-      email: studentRequest.dateOfBirth,
+      email: studentRequest.email,
       mobile: studentRequest.mobile,
       genderId: studentRequest.genderId,
       physicalAddress: studentRequest.address.physicalAddress,
