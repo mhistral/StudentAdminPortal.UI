@@ -83,10 +83,10 @@ export class ViewStudentComponent implements OnInit {
   // this part is where the ajax calles the API
   onDelete(): void {
     // Call student service to delete Student
-    this.studentService.updateStudent(this.student.id, this.student).subscribe(
+    this.studentService.deleteStudent(this.student.id).subscribe(
       (successResponse) => {
+        // Delete Student
         console.log(successResponse);
-        // show a notification
       },
       (error) => {
         // log or console
